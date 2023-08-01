@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Foo, FooService } from './foo.service';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Kita, KitaService } from './kita.service';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  imports: [ReactiveFormsModule],
 })
 export class AppComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private fooService: FooService,
+    private fooService: KitaService,
   ) {}
 
   form = this.formBuilder.group({
@@ -28,10 +30,10 @@ export class AppComponent implements OnInit {
   submit() {
     const formValue = this.form.value;
 
-    const foo: Foo = {
+    const kita: Kita = {
       // TODO
     };
 
-    this.fooService.put(foo);
+    this.fooService.put(kita);
   }
 }

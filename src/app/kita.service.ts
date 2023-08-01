@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 
-// Properties vom Backend sind: id (number), name (string), datum (number[])
+// Properties im Backend-Objekt:
+//
+// id (number)
+// name (string)
+// datum (number[])
+//
+// name und datum können null sein oder nicht existieren
 
-export interface Foo {
+export interface Kita {
   // TODO
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapIncoming(incoming: any): Foo {
+function mapIncoming(incoming: any): Kita {
   return {
     // TODO
   };
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapOutgoing(outgoing: Foo): any {
+function mapOutgoing(outgoing: Kita): any {
   return {
     // TODO
   };
@@ -24,8 +30,8 @@ function mapOutgoing(outgoing: Foo): any {
 // TODO: Funktion zum Mappen von Backend-Datum zu Date
 
 @Injectable({ providedIn: 'root' })
-export class FooService {
-  get(): Observable<Foo> {
+export class KitaService {
+  get(): Observable<Kita> {
     const incoming = {
       id: 1,
       name: null,
@@ -35,7 +41,7 @@ export class FooService {
     return of(incoming).pipe(map(mapIncoming));
   }
 
-  put(kita: Foo) {
+  put(kita: Kita) {
     console.log(mapOutgoing(kita));
   }
 }
